@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %} Registrar Usuario {% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2>Nuevo Usuario</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="fielWrapper col-sm12 control-laber">
+            <div>Usuario:</div>
+                <div class="col-sm-8 row-nombre">
+                    <input type="text" name="username" id="username" required="True" class="form-control">
+                </div>
+        </div>
+
+        <div class="fielWrapper col-sm12 control-laber">
+            <div>Contraseña:</div>
+                <div class="col-sm-8 row-nombre">
+                    <input type="password" name="password1" id="password1" required="True" class="form-control">
+                </div>
+        </div>
+
+         <div class="fielWrapper col-sm12 control-laber">
+            <div>Confirmar Contraseña:</div>
+                <div class="col-sm-8 row-nombre">
+                    <input type="password" name="password2" id="password2" required="True" class="form-control">
+                </div>
+        </div>
+
+         <div class="fielWrapper col-sm12 control-laber">
+            <div>Telefono:</div>
+                <div class="col-sm-8 row-nombre">
+                    <input type="text" name="telefono" id="telefono" required="True" class="form-control">
+                </div>
+        </div>
+
+         <div class="fielWrapper col-sm12 control-laber">
+            <div>Direccion:</div>
+                <div class="col-sm-8 row-nombre">
+                    <input type="text" name="direccion" id="direccion" required="True" class="form-control">
+                </div>
+        </div>
+
+         <div class="fielWrapper col-sm12 control-laber">
+            <div>Cedula:</div>
+                <div class="col-sm-8 row-nombre">
+                    <input type="text" name="cedula" id="cedula" required="True" class="form-control">
+                </div>
+        </div>
+        <br>
+
+        <div class="fieldWrapper col-sm-12 control-label">
+            {{ form.foto.erros }}
+            <label for="{{ form.foto.id_for_label }}">Foto:</label>
+            {{ form.foto }}
+        </div>
+        <br>
+        <footer>
+            <button class="btn btn-info" type="submit" >Guardar</button>
+            <button class="btn btn-danger" onclick="window.location='/login/'">Salir</button>
+        </footer>
+    </form>
+</div>
+{% endblock %}
